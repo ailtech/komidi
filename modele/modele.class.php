@@ -15,7 +15,19 @@ class Spectacle
 		$editRow=$stmt->fetch(PDO::FETCH_ASSOC);
 		return $editRow;
 	}
-	
+	//receuille lemail
+	public function getEmail($req){
+		$stmt = $this->db->prepare($req);
+		$stmt->execute();
+		$editRow=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $editRow->rowCount();
+	}
+	//ajoute un menbres
+	public function setMembre($req){
+		$stmt = $this->db->prepare($req);
+		$stmt->execute();
+
+	}
 	public function getSpectacle($id)
 	{
 
