@@ -1,6 +1,6 @@
 <?php 
 require 'include/config.php';   
-
+//test
 //Titre onglet
 $titretab = "Komidi Inscription";
 // Menu de la page
