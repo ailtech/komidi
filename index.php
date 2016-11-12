@@ -17,6 +17,10 @@ try {
 			login();  // connexion
 			exit;
 		}
+		if ($_GET['action'] == 'inscription') {
+			inscription();  // connexion
+			exit;
+		}
 		if ($_GET['action'] == 'connec') {
 			connec() ; // Acceuil du site
 			exit;

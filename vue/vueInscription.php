@@ -18,14 +18,39 @@ foreach($menupage as $page_name => $page_url)
 $menupage = ob_get_clean();
 
 //Contenu de la page
-ob_start(); 
-echo "<div class='row affiches'>";
-$strSQL= "SELECT Spe_id, Spe_titre, Spe_genre, Spe_resume_court, Spe_affiche, Spe_public FROM kdi_spectacle ORDER BY RAND()";
-      
-$records_per_page=6;
-$newSQL = $spectacles->paging($strSQL,$records_per_page);
-$spectacles->dataview($strSQL);
-echo "</div><!-- .row affiches -->";
+ob_start();
+
+echo "<form action='#' method='POST'>
+        <div class='form-group'>
+            <label for='nom'>Nom:</label>
+            <input type='text' class='form-control' id='nom'>
+        </div>
+        <div class='form-group'>
+            <label for='prenom'>Prenom:</label>
+            <input type='text' class='form-control' id='prenom'>
+        </div>
+        <div class='form-group'>
+            <label for='email'>email:</label>
+            <input type='email' class='form-control' id='email'>
+        </div>
+        <div class='form-group'>
+            <label for='c_email'>Confirmation email:</label>
+            <input type='email' class='form-control' id='c_email'>
+        </div>
+        <div class='form-group'>
+            <label for='mdp'>Mot de passe:</label>
+            <input type='password' class='form-control' id='mdp'>
+        </div>
+        <div class='form-group'>
+            <label for='c_mdp'>Name:</label>
+            <input type='password' class='form-control' id='c_md'>
+        </div>
+        <div class='checkbox'>
+            <label><input type='checkbox'>Homme</label>
+            <label><input type='checkbox'>Femme</label>
+        </div>
+        <button type='submit' class='btn btn-default'>Submit</button>
+    </form>";
 $contenupage = ob_get_clean();
 
 //Appel de template

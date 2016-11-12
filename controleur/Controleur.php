@@ -17,4 +17,7 @@ function connec(){
 
     header('Location:./admin/administration.php');
 }
+function inscription(){
+    require './vue/vueInscription.php';
+}
 ?>
