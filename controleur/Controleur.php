@@ -20,4 +20,7 @@ function connec(){
 function inscription(){
     require './vue/vueInscription.php';
 }
+function demandeInscription(){
+    require './vue/vueDemandeInscription.php';
+}
 ?>
