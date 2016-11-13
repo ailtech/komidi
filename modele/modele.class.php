@@ -71,7 +71,7 @@ class Spectacle
 				$picture 	= getCover($row['Spe_affiche']);
 ?>
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"> 
-					<a  href="#?id=<?= $id ?>&action=getSpectacle">
+					<a  href="index.php?action=getSpectacle&id=<?= $id ?>">
 						<img class="img-rounded" src="<?= $picture ?>" class='img-rounded' width='150px' height='150px'>
 					</a>
 					<div class="caption">
