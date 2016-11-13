@@ -28,9 +28,14 @@ class Spectacle
 		$stmt->execute();
 
 	}
-	public function getSpectacle($id)
+	public function getSpectacle($id)//recupere les info lier a un spectacle
 	{
 
+		$strSQL= "SELECT Spe_id, Spe_titre, Spe_genre, Spe_resume_court, Spe_affiche, Spe_public FROM kdi_spectacle WHERE Spe_id=".$id.";";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit;
 	}
 	
 	
