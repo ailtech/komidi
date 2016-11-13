@@ -23,4 +23,7 @@ function inscription(){
 function demandeInscription(){
     require './vue/vueDemandeInscription.php';
 }
+function spectacle(){
+    require './vue/vueSpectacle.php';
+}
 ?>
