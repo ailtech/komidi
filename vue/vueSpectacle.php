@@ -38,6 +38,13 @@ else{
     $id = htmlentities(htmlspecialchars( $_GET['id'] ));
     $spectacle = $spectacles->getSpectacle($id);
     //creer une methode pour afficher un spectacle ou afficher directement dans la vue ici
+    if(!$spectacle){
+        //spectacle non trouver
+    }
+    else{
+        //affichage du specacle
+        echo "spectacle trouver";
+    }
 
 }
 
