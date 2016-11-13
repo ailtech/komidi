@@ -35,7 +35,7 @@ if( !isset( $_GET['id'] ) or empty( $_GET['id'] ) ){
     //erreur l'id na pas etait envoyer
 }
 else{
-    $id = $_GET['id'];
+    $id = htmlentities(htmlspecialchars( $_GET['id'] ));
     $spectacle = $spectacles->getSpectacle($id);
     //creer une methode pour afficher un spectacle ou afficher directement dans la vue ici
 
