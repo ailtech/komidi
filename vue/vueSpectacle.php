@@ -43,7 +43,7 @@ else{
     }
     else{
         //affichage du specacle
-        echo "spectacle trouver";
+        //echo $spectacle['Spe_titre'];
     }
 
 }

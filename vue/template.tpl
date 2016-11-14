@@ -8,6 +8,12 @@
 
 			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 			<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+			<link rel="stylesheet" type="text/css" href="ratingStar/star-rating.min.css">
+			<style>
+				#tabCoter{
+					display: inline-block;
+				}
+			</style>
 		</head>
 		<body>
 
@@ -67,7 +73,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
-
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="ratingStar/js/star-rating.js"></script>
 
 </body>
 </html>
