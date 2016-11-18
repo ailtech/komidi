@@ -548,18 +548,18 @@
         defaultCaption: '{rating} Stars',
         starCaptions: {
             0.5: 'Half Star',
-            1: 'One Star',
+            1: '1',
             1.5: 'One & Half Star',
-            2: 'Two Stars',
+            2: '2',
             2.5: 'Two & Half Stars',
-            3: 'Three Stars',
+            3: '3',
             3.5: 'Three & Half Stars',
-            4: 'Four Stars',
+            4: '4',
             4.5: 'Four & Half Stars',
-            5: 'Five Stars'
+            5: '5'
         },
-        clearButtonTitle: 'Clear',
-        clearCaption: 'Not Rated'
+        clearButtonTitle: 'Annuler',
+        clearCaption: 'Aucun vote'
     };
 
     $.fn.rating.Constructor = Rating;
