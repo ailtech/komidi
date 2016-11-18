@@ -6,9 +6,10 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title><?=  $titretab;  ?></title>
 
+			<link href="ratingStar/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 			<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
-			<link rel="stylesheet" type="text/css" href="ratingStar/star-rating.min.css">
+
 			<style>
 				#tabCoter{
 					display: inline-block;
