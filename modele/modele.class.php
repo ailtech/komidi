@@ -28,6 +28,16 @@ class Spectacle
 		$stmt->execute();
 
 	}
+	//methode pour recuperer la vue prend en parametre l'id du spectacle
+	public function getVueNote($id){
+
+		$strSQL= "SELECT * FROM kdi_listenbNote_Moyenne WHERE Spe_id=$id;";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+        $stmt=$stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt;
+	}
+
 	public function getSpectacle($id)//recupere les info lier a un spectacle
 	{
 
@@ -48,7 +58,7 @@ class Spectacle
 				<ul class='list-unstyled'>
 					<li> 
 						<h5>
-							<span class='glyphicons glyphicons-one-day'></span>Durée : <small>$edit[Spe_duree]</small>
+							<span class='glyphicons glyphicons-one-day'></span>Durée : <small>$edit[Spe_duree]  minute</small>
 						</h5>
 					</li>
 					<li> 

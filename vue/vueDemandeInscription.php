@@ -26,14 +26,14 @@ echo "<div class='row affiches'>";
 
 
 if( !isset( $_POST['nom'] ) or empty( $_POST['nom'] ) or strlen( $_POST['nom'] ) > 50 ){//verifie si le nom est bien envoyer,remplie et ne depasse pas 50 caractére
-    $err= "<div class='alert alert-danger'><strong>Attention!</strong> Le nom ne doit pas depasser 50 caractére et être inférieur à 1 caractére.</div>";//on traite l'erreur
+    $err= "<div class='alert alert-danger'><strong>Attention!</strong> Le nom ne doit pas depasser 50 caractére et ne pas être inférieur à 1 caractére.</div>";//on traite l'erreur
 }
 else{
 
     $nom = htmlspecialchars(htmlentities($_POST['nom']));//on échape le texte
 
     if( !isset( $_POST['prenom'] ) or empty( $_POST['prenom'] ) or strlen( $_POST['prenom'] ) > 100 ){//verifie si le prenom est bien envoyer,remplie et ne depasse pas 100 caractére
-        $err = "<div class='alert alert-danger'><strong>Attention!</strong> Le prénom ne doit pas dépasser 100 caractére et être inférieur à 1 caractére.</div>";//on traite l'erreur
+        $err = "<div class='alert alert-danger'><strong>Attention!</strong> Le prénom ne doit pas dépasser 100 caractére et ne pas  être inférieur à 1 caractére.</div>";//on traite l'erreur
     }
     else{
 
