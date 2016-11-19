@@ -103,6 +103,14 @@ WHERE S.Spe_id = B.Spe_id;";
 				<label for='input-7-xs' class='control-label'>Noter le Spectacle:</label>
 				<input id='input-7-xs' class='rating rating-loading' value='$noteArrondi' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
 				$noteArrondi/5 ($note[nbDenote] votes)
+				<form action='#' method='POST'>
+					<input type='hidden' name='idSpectacle' value='$id'>
+					
+					<input type='hidden' name='idMembre' value=''>
+					<input type='submit' value='Voter'>
+					
+				</form>
+				
 				
 			
 			
