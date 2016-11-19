@@ -26,4 +26,8 @@ function demandeInscription(){
 function spectacle(){
     require './vue/vueSpectacle.php';
 }
+// page de contact
+function contact(){
+    require './vue/vueContact.php';
+}
 ?>

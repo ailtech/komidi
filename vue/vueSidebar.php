@@ -1,6 +1,7 @@
-<?php 
-
+<?php
+//require 'include/config.php';
 // Sidebar 5 mieux notés
+
 ob_start();
 ?>
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">

@@ -29,6 +29,10 @@ try {
 			connec() ; // Acceuil du site
 			exit;
 		}
+		if ($_GET['action'] == 'Contact') {
+			contact();  // page de contact
+			exit;
+		}
 		if ($_GET['action'] == 'getSpectacle') {
 			spectacle(); // Acceuil du site
 			exit;
