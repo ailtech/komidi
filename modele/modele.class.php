@@ -34,8 +34,8 @@ class Spectacle
 		$strSQL= "SELECT * FROM kdi_listenbNote_Moyenne WHERE Spe_id=$id;";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
-        $stmt=$stmt->fetch(PDO::FETCH_ASSOC);
-        return $stmt;
+        $edit=$stmt->fetch(PDO::FETCH_ASSOC);
+        return $edit;
 	}
 
 	public function getSpectacle($id)//recupere les info lier a un spectacle
@@ -45,6 +45,8 @@ class Spectacle
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
 		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+        $note = $this->getVueNote($id);
+        $noteArrondi = round($note['moyenneNote']);
 		echo "<div class=\"container\">
 		<!-- titre-->
 		<h1>$edit[Spe_titre]</h1>
@@ -83,11 +85,11 @@ class Spectacle
 					</li>
 				</ul>
 			</div>
-				
+				 
 				<!-- notation -->
 				<label for='input-7-xs' class='control-label'>Noter le Spectacle:</label>
-				<input id='input-7-xs' class='rating rating-loading' value='1' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
-				3,3/5 (19 votes)
+				<input id='input-7-xs' class='rating rating-loading' value='$noteArrondi' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
+				$noteArrondi/5 ($note[nbDenote] votes)
 				
 			
 			
