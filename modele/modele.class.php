@@ -40,11 +40,14 @@ class Spectacle
 	//recuperer les 5 meilleur spectacle
     public function get5Spectacle(){
 
-        $strSQL= "SELECT Spe_id FROM  kdi_listenbNote_Moyenne ORDER BY moyenneNote DESC LIMIT 5;";
+        $strSQL= "SELECT S.Spe_titre,S.Spe_id
+FROM kdi_spectacle S,cinqBestSpectacle B
+WHERE S.Spe_id = B.Spe_id;";
         $stmt = $this->db->prepare($strSQL);
         $stmt->execute();
         $edit=$stmt->fetch(PDO::FETCH_ASSOC);
         return $edit;
+		//return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
 

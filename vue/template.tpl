@@ -42,11 +42,11 @@
 					<div class="col-xs-12 col-sm-9">
 						<div class="jumbotron">
 							<h1>
-								<?= $titrepage; ?>
-								<img src="image/logoscope.png" class="pull-right">
+								<?= $titrepage ?>
+								<img src="image/affichekomidi.png" class="pull-right">
 							</h1>
 							<p>
-								<?= $msgaccueilpage; ?>
+								<?= $msgaccueilpage ?>
 							</p>
 						</div>
 
