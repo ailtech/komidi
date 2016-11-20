@@ -50,6 +50,45 @@ WHERE S.Spe_id = B.Spe_id;";
 		//return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
+    //verifie si le membres existe
+	public function verifMembre($idMembre){
+		$strSQL= "SELECT mem_id FROM menbres WHERE mem_id = $idMembre;";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit->rowCount();
+	}
+	//verifie si un spectacle existe
+	public function verifSpectacle($idSpectacle){
+		$strSQL= "SELECT Spe_id FROM kdi_spectacle WHERE Spe_id = $idSpectacle;";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit->rowCount();
+	}
+    //verifie si la personne a déja voter
+	public function verifNoter($idMembre,$idSpectacle){
+		//faire envoyer la variable id membres de sessio aussi pour verifier si la personne ne tente ppas une usurpation d' id membres
+		$strSQL= "SELECT mem_id,Spe_id FROM noter WHERE mem_id =$idMembre  AND Spe_id = $idSpectacle;";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit->rowCount();
+	}
+	//enregistre le vote de la personne
+    public function noter($idMembre,$idSpectacle,$note){
+
+		if( $this->verifNoter($idMembre,$idSpectacle) == 0 or $this->verifMembre($idMembre) == 0 or $this->verifSpectacle($idSpectacle) == 0){
+			return false;
+		}
+		else{
+			$strSQL= "INSERT INTO noter VALUES($idMembre,$idSpectacle,$note);";
+			$stmt = $this->db->prepare($strSQL);
+			$stmt->execute();
+			return true;
+		}
+
+	}
 
 	public function getSpectacle($id)//recupere les info lier a un spectacle
 	{
@@ -100,14 +139,15 @@ WHERE S.Spe_id = B.Spe_id;";
 			</div>
 				 
 				<!-- notation -->
+				<form action='#' method='POST'>
 				<label for='input-7-xs' class='control-label'>Noter le Spectacle:</label>
 				<input id='input-7-xs' class='rating rating-loading' value='$noteArrondi' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
 				$noteArrondi/5 ($note[nbDenote] votes)
-				<form action='#' method='POST'>
+				
 					<input type='hidden' name='idSpectacle' value='$id'>
 					
-					<input type='hidden' name='idMembre' value=''>
-					<input type='submit' value='Voter'>
+					<input type='hidden' name='idMembre' value='23'>
+					<input type='submit' value='Voter' id='note'>
 					
 				</form>
 				
