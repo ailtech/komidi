@@ -30,4 +30,7 @@ function spectacle(){
 function contact(){
     require './vue/vueContact.php';
 }
+function noter(){
+    require './vue/vueNoter.php';
+}
 ?>

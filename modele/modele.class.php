@@ -55,16 +55,16 @@ WHERE S.Spe_id = B.Spe_id;";
 		$strSQL= "SELECT mem_id FROM menbres WHERE mem_id = $idMembre;";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
-		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $edit->rowCount();
+		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->rowCount();
 	}
 	//verifie si un spectacle existe
 	public function verifSpectacle($idSpectacle){
 		$strSQL= "SELECT Spe_id FROM kdi_spectacle WHERE Spe_id = $idSpectacle;";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
-		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $edit->rowCount();
+		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->rowCount();
 	}
     //verifie si la personne a déja voter
 	public function verifNoter($idMembre,$idSpectacle){
@@ -72,21 +72,23 @@ WHERE S.Spe_id = B.Spe_id;";
 		$strSQL= "SELECT mem_id,Spe_id FROM noter WHERE mem_id =$idMembre  AND Spe_id = $idSpectacle;";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
-		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $edit->rowCount();
+		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->rowCount();
 	}
 	//enregistre le vote de la personne
     public function noter($idMembre,$idSpectacle,$note){
+		//echo $this->verifNoter($idMembre,$idSpectacle).";".$this->verifMembre($idMembre).";".$this->verifSpectacle($idSpectacle);
 
-		if( $this->verifNoter($idMembre,$idSpectacle) == 0 or $this->verifMembre($idMembre) == 0 or $this->verifSpectacle($idSpectacle) == 0){
-			return false;
+		if( $this->verifNoter($idMembre,$idSpectacle) == 1 or $this->verifMembre($idMembre) == 0 or $this->verifSpectacle($idSpectacle) == 0){
+			return "0";
 		}
 		else{
 			$strSQL= "INSERT INTO noter VALUES($idMembre,$idSpectacle,$note);";
 			$stmt = $this->db->prepare($strSQL);
 			$stmt->execute();
-			return true;
+			return "1";
 		}
+
 
 	}
 
@@ -101,6 +103,7 @@ WHERE S.Spe_id = B.Spe_id;";
         $noteArrondi = round($note['moyenneNote']);
 		echo "<div class=\"container\">
 		<!-- titre-->
+		<div class=\"alert alert-success\" role=\"alert\" id='alertNotation' style='display:none;'></div>
 		<h1>$edit[Spe_titre]</h1>
 		<div class='row'>
 			<div class='col-md-4'>
@@ -146,7 +149,7 @@ WHERE S.Spe_id = B.Spe_id;";
 				
 					<input type='hidden' name='idSpectacle' value='$id'>
 					
-					<input type='hidden' name='idMembre' value='23'>
+					<input type='hidden' name='idMembre' value='3'>
 					<input type='submit' value='Voter' id='note'>
 					
 				</form>

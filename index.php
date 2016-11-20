@@ -33,6 +33,10 @@ try {
 			contact();  // page de contact
 			exit;
 		}
+		if ($_GET['action'] == 'noter') {
+			noter();  // page de notation
+			exit;
+		}
 		if ($_GET['action'] == 'getSpectacle') {
 			spectacle(); // Acceuil du site
 			exit;

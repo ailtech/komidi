@@ -48,6 +48,7 @@ else{
 
 }
 
+
 echo "</div><!-- .row affiches -->";
 $contenupage = ob_get_clean();
 
