@@ -18,7 +18,36 @@ $menupage = ob_get_clean();
 
 ob_start();
  if( !isset( $_POST['email'] ) or empty( $_POST['email'] ) or !isset( $_POST['mdp'] ) or empty( $_POST['mdp'] ) ){
+     echo '<div class="alert alert-danger" role="alert">Une erreur est survenu.</div>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
 
+        <form  id="loginForm" class="form-horizontal" action="index.php?action=connexion" method="post">
+               <div class="form-group">
+                    <label class="col-sm-3 control-label">Login</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="email" id="email"placeholder="Entrer votre Email" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Mot de passe</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" name="mdp" id="mdp"placeholder=" Entrer votre Mot de passe" >
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+
+                        <button type="submit" class="btn btn-warning" name="signup" value="Sign up">Connexion</button> <p><a href="index.php?action=inscription">Créer un compte </a></p>
+
+
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>';
  }
  else{
     $email = htmlspecialchars(htmlentities($_POST['email']));
