@@ -21,12 +21,20 @@ try {
 			demandeInscription() ; // Acceuil du site
 			exit;
 		}
+		if ($_GET['action'] == 'deco') {
+			deco();  // deconection
+			exit;
+		}
 		if ($_GET['action'] == 'inscription') {
 			inscription();  // connexion
 			exit;
 		}
 		if ($_GET['action'] == 'connec') {
 			connec() ; // Acceuil du site
+			exit;
+		}
+		if ($_GET['action'] == 'connexion') {
+			connexion();  // page de contact
 			exit;
 		}
 		if ($_GET['action'] == 'Contact') {

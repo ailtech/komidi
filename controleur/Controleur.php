@@ -33,4 +33,10 @@ function contact(){
 function noter(){
     require './vue/vueNoter.php';
 }
+function connexion(){
+    require 'vue/vueDemandeLogin.php';
+}
+function deco(){
+    require 'vue/vueDeconnection.php';
+}
 ?>

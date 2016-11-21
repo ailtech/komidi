@@ -66,6 +66,39 @@ WHERE S.Spe_id = B.Spe_id;";
 		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
 		return $stmt->rowCount();
 	}
+	//regarde si la personne existe dans la baase de donner pour ce connecter
+	public function verifConnection($email,$mdp){
+		$strSQL= "SELECT mem_email,mem_pass,mem_statut FROM menbres WHERE mem_email = \"$email\" AND mem_pass = \"$mdp\";";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		if( $stmt->rowCount() == 1 ){
+			$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+			if( $edit['mem_statut'] == 0 ){
+				return "u";
+			}
+			else if( $edit['mem_statut'] == 1 ){
+				return "a";
+			}
+			else{
+				return "e";
+			}
+		}
+		else if( $stmt->rowCount() == 0 ){
+			return "e";
+		}
+		else{
+			return "e";
+		}
+
+	}
+	//recupere des infosur l(utilisateur
+	public function getUtilisateur($mail,$mdp){
+		$strSQL= "SELECT * FROM menbres WHERE mem_email = \"$mail\" AND mem_pass = \"$mdp\";";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit;
+	}
     //verifie si la personne a déja voter
 	public function verifNoter($idMembre,$idSpectacle){
 		//faire envoyer la variable id membres de sessio aussi pour verifier si la personne ne tente ppas une usurpation d' id membres

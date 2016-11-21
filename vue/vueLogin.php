@@ -21,7 +21,7 @@ $records_per_page=6;
 echo '<div class="row">
     <div class="col-sm-8 col-sm-offset-2">
 
-        <form  id="loginForm" class="form-horizontal" action="./admin/administration.php" method="post">
+        <form  id="loginForm" class="form-horizontal" action="index.php?action=connexion" method="post">
                <div class="form-group">
                     <label class="col-sm-3 control-label">Login</label>
                     <div class="col-sm-5">
@@ -51,5 +51,5 @@ echo '<div class="row">
     $contenupage = ob_get_clean();
 
     require "vue/vueSidebar.php";
-    require 'template.tpl';
+    require 'template2.tpl';
 ?>
