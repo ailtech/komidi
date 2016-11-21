@@ -18,6 +18,6 @@
 	$contenupage = ob_get_clean();
 
     require "vue/vueSidebar.php";
-    require 'template.tpl';
+    require 'template2.tpl';
 
 ?>

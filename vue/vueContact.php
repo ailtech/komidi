@@ -77,5 +77,5 @@ $menupage = ob_get_clean();
 <?php
     $contenupage = ob_get_clean();
     require "vue/vueSidebar.php";
-    require "vue/template.tpl";
+    require "vue/template2.tpl";
 ?>

@@ -56,5 +56,5 @@ $contenupage = ob_get_clean();
 
 //Appel de template
 require "vue/vueSidebar.php";
-require "vue/template.tpl";
+require "vue/template2.tpl";
 ?>
