@@ -14,6 +14,7 @@ require 'include/config.php';
 //Titre onglet
 $titretab = "Komidi Accueil";
 // Menu de la page
+
 ob_start();
 foreach($menupage as $page_name => $page_url)
 {
@@ -25,6 +26,7 @@ foreach($menupage as $page_name => $page_url)
 		<a href='$page_url'>".$page_name ."</a>".
         "</li>";
 }
+
 $menupage = ob_get_clean();
 
 //Contenu de la page

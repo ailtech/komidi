@@ -35,8 +35,17 @@
 
 						</ul>
 					</div>
+					<div class="input-group">
+						<form action="#" method="GET">
+							<input type="search" name="recherche" placeholder="Rechercher">
+							<span class="glyphicon glyphicon-search"></span>
+
+						</form>
+					</div>
+
 				</div>
 			</nav>
+
 			<div class="container">		
 				<div class="row">
 					<div class="col-xs-12 col-sm-9">
