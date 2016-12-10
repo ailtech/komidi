@@ -40,14 +40,12 @@ class Spectacle
 	//recuperer les 5 meilleur spectacle
     public function get5Spectacle(){
 
-        $strSQL= "SELECT S.Spe_titre,S.Spe_id
-FROM kdi_spectacle S,cinqBestSpectacle B
-WHERE S.Spe_id = B.Spe_id;";
+        $strSQL= "SELECT Spe_titre,K.Spe_id FROM kdi_spectacle K, cinqBestSpectacle C WHERE C.Spe_id = K.spe_id;";
         $stmt = $this->db->prepare($strSQL);
         $stmt->execute();
-        $edit=$stmt->fetch(PDO::FETCH_ASSOC);
-        return $edit;
-		//return $stmt->fetch(PDO::FETCH_ASSOC);
+        //$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+        //return $edit;
+		return $stmt;
 
     }
     //verifie si le membres existe
@@ -58,6 +56,17 @@ WHERE S.Spe_id = B.Spe_id;";
 		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
 		return $stmt->rowCount();
 	}
+
+	//cherche le texte
+	public function recherche($texte){
+		$strSQL= "SELECT Spe_titre,Spe_id,Spe_affiche FROM kdi_spectacle WHERE Spe_titre LIKE \"%$texte%\" OR Spe_acteur LIKE \"%$texte%\" OR Spe_genre LIKE \"%$texte%\";";
+		//bbro i was ir
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $edit;
+	}
+
 	//verifie si un spectacle existe
 	public function verifSpectacle($idSpectacle){
 		$strSQL= "SELECT Spe_id FROM kdi_spectacle WHERE Spe_id = $idSpectacle;";
@@ -132,71 +141,6 @@ WHERE S.Spe_id = B.Spe_id;";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
 		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
-        $note = $this->getVueNote($id);
-        $noteArrondi = round($note['moyenneNote']);
-		echo "<div class=\"container\">
-		<!-- titre-->
-		<div class=\"alert alert-success\" role=\"alert\" id='alertNotation' style='display:none;'></div>
-		<h1>$edit[Spe_titre]</h1>
-		<div class='row'>
-			<div class='col-md-4'>
-				<img src=\"image/$edit[Spe_affiche]\" alt='Affiche' width='197px' height='263px'><!-- image preview-->
-
-			</div>
-			<div class='col-md-8'>
-				<!-- Liste -->
-				<ul class='list-unstyled'>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-one-day'></span>Durée : <small>$edit[Spe_duree]  minute</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-gender-ori-hetero'></span>Genres : <small>$edit[Spe_genre]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-family'></span>Nationalités : <small>$edit[Spe_Lang]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-old-man'></span>Acteurs : <small>$edit[Spe_mes]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-group'></span>Public : <small>$edit[Spe_public]</small>
-						</h5>
-					</li>
-				</ul>
-			</div>
-				 
-				<!-- notation -->
-				<form action='#' method='POST'>
-				<label for='input-7-xs' class='control-label'>Noter le Spectacle:</label>
-				<input id='input-7-xs' class='rating rating-loading' value='$noteArrondi' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
-				$noteArrondi/5 ($note[nbDenote] votes)
-				
-					<input type='hidden' name='idSpectacle' value='$id'>
-					
-					<input type='hidden' name='idMembre' value='3'>
-					<input type='submit' value='Voter' id='note'>
-					
-				</form>
-				
-				
-			
-			
-		</div>
-		<!-- texteau sujet du spectacle -->
-				<H2>Synopsis</H2>
-				<p class=''>
-					$edit[Spe_resume_long]
-				</p>
-	</div>";
 		return $edit;
 	}
 	

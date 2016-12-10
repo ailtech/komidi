@@ -37,7 +37,7 @@
         </div>
         <div class="input-group">
             <form action="#" method="GET">
-                <input type="search" name="recherche" placeholder="Rechercher">
+                <input type="search" name="recherche" placeholder="Rechercher" id="recherche">
                 <span class="glyphicon glyphicon-search"></span>
 
             </form>
@@ -77,6 +77,7 @@
 <script src="ratingStar/js/star-rating.js"></script>
 <script src="bootstrap/js/Vérif.js"></script>
 <script src="bootstrap/js/noter.js"></script>
+<script src="bootstrap/js/recherche.js"></script>
 
 </body>
 </html>

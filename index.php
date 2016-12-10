@@ -4,6 +4,8 @@
 session_start();
 
 require('./controleur/Controleur.php');
+require('./include/fonction.php');
+
 //echo $_GET['action'] ;
 //exit;
 try {
@@ -11,6 +13,10 @@ try {
 	{
 		if ($_GET['action'] == 'Accueil') {
 			accueil() ; // Acceuil du site
+			exit;
+		}
+		if ($_GET['action'] == 'recherche') {
+			recherche() ; // recherche du site
 			exit;
 		}
 		if ($_GET['action'] == 'login') {
@@ -29,10 +35,7 @@ try {
 			inscription();  // connexion
 			exit;
 		}
-		if ($_GET['action'] == 'connec') {
-			connec() ; // Acceuil du site
-			exit;
-		}
+
 		if ($_GET['action'] == 'connexion') {
 			connexion();  // page de contact
 			exit;
@@ -45,6 +48,7 @@ try {
 			noter();  // page de notation
 			exit;
 		}
+
 		if ($_GET['action'] == 'getSpectacle') {
 			spectacle(); // Acceuil du site
 			exit;

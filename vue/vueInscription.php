@@ -18,7 +18,7 @@ $menupage = ob_get_clean();
 ob_start();
 ?>
     <div class="container">
-        <form method="post" class="well">
+        <form method="post" class="well" action="index.php?action=demandeInscription">
             <legend>Formulaire d'inscription</legend>
             <div class="form-group">
                 <label for="nom">Nom</label>
@@ -47,7 +47,11 @@ ob_start();
 
             <div class="form-group">
                 <label for="mail">Email</label>
-                <input type="text" class="form-control" id="mail" placeholder="Ex: jeanjean@gmail.com" name="mail" onblur="verifMail(this)"/>
+                <input type="text" class="form-control" id="mail" placeholder="Ex: jeanjean@gmail.com" name="email" onblur="verifMail(this)"/>
+            </div>
+            <div class='checkbox'>
+                <label><input type='checkbox' name='sex' value='h'>Homme</label>
+                <label><input type='checkbox' name='sex' value='f'>Femme</label>
             </div>
 
             <input type="submit" class="btn btn-default" value="Valider"/>

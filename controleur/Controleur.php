@@ -13,10 +13,12 @@ function login(){
 function erreur() {
     require './vue/vueErreur.php';
 }
+/*
 function connec(){
 
     header('Location:./admin/administration.php');
 }
+*/
 function inscription(){
     require './vue/vueInscription.php';
 }
@@ -33,10 +35,16 @@ function contact(){
 function noter(){
     require './vue/vueNoter.php';
 }
-function connexion(){
-    require 'vue/vueDemandeLogin.php';
-}
+
 function deco(){
     require 'vue/vueDeconnection.php';
+}
+function connexion()
+{
+    require './vue/vueIdentification.php';
+}
+
+function recherche(){
+    require 'vue/vueRecherche.php';
 }
 ?>
