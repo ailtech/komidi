@@ -7,12 +7,19 @@ require 'include/config.php';
     else{
         $texte = htmlentities(htmlspecialchars( $_GET['texte'] ));
         $rst = $spectacles->recherche($texte);
-        $trouver = "titre:".$rst['Spe_titre'].";id:".$rst['Spe_id'].";lienImage".$rst['Spe_affiche'];
+
         //echo $trouver;
         //print_r($rst);
-        foreach ($rst as $i => $value) {
-            print_r($value);
+
+        while ( $row=$rst->fetch(PDO::FETCH_ASSOC) ){
+            //$trouver = "titre:".$row['Spe_titre'].";id:".$row['Spe_id'].";lienImage".$row['Spe_affiche']."<br>";
+            //echo $trouver;
+
+            echo "<a href=\"index.php?action=getSpectacle&id=$row[Spe_id]\" class=\"list-group-item list-group-item-info\">$row[Spe_titre]</a>";    //<a href="#" class="list-group-item">First item</a>
+
+
         }
+
         //bbro
         // je suis ici
         //bbro

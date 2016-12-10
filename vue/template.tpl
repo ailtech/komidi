@@ -39,7 +39,9 @@
 						<form action="#" method="GET">
 							<input type="search" name="recherche" placeholder="Rechercher" id="recherche">
 							<span class="glyphicon glyphicon-search"></span>
-
+							<div class="list-group" id="emplacementRecherche">
+								
+							</div>
 						</form>
 					</div>
 
