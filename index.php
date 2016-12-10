@@ -27,7 +27,7 @@ try {
 			demandeInscription() ; // Acceuil du site
 			exit;
 		}
-		if ($_GET['action'] == 'deco') {
+		if ($_GET['action'] == 'deconnexion') {
 			deco();  // deconection
 			exit;
 		}

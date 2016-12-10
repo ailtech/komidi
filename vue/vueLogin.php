@@ -25,14 +25,14 @@ echo '<div class="row">
                <div class="form-group">
                     <label class="col-sm-3 control-label">Login</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="email" id="email"placeholder="Entrer votre Email" >
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Entrer votre Email" >
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Mot de passe</label>
                     <div class="col-sm-5">
-                        <input type="password" class="form-control" name="mdp" id="mdp"placeholder=" Entrer votre Mot de passe" >
+                        <input type="password" class="form-control" name="mdp" id="mdp" placeholder=" Entrer votre Mot de passe" >
 
                     </div>
                 </div>

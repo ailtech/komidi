@@ -1,6 +1,9 @@
 <?php
 require 'include/config.php';
 session_destroy();
+//on remet le bouton pour se conncter en place
+$m='Connexion';
+$l= 'index.php?action=login';
 
 $titre = "Connexion utilisateur";
 $titrecontenu   = "<h2>Connexion </h2>";

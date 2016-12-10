@@ -34,16 +34,19 @@
 							<?= $menupage ?>
 
 						</ul>
+
 					</div>
+
 					<div class="input-group">
 						<form action="#" method="GET">
 							<input type="search" name="recherche" placeholder="Rechercher" id="recherche">
 							<span class="glyphicon glyphicon-search"></span>
 							<div class="list-group" id="emplacementRecherche">
-								
+
 							</div>
 						</form>
 					</div>
+					<?= $adherent ?>
 
 				</div>
 			</nav>
@@ -86,6 +89,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			<script src="ratingStar/js/star-rating.js"></script>
             <script src="bootstrap/js/Vérif.js"></script>
             <script src="bootstrap/js/noter.js"></script>
