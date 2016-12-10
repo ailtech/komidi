@@ -43,7 +43,7 @@ else{
     $note = $spectacles->getVueNote($id);
     $noteArrondi = round($note['moyenneNote']);
     //partit pour un membres connecter
-    if( isset( $_SESSION['id'] ) and empty( $_SESSION['id'] ) ){
+    if( isset( $_SESSION['id'] ) and !empty( $_SESSION['id'] ) ){
         $idMembre = $_SESSION['id'];
         echo "<div class=\"container\">
 		<!-- titre-->
