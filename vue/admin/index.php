@@ -8,7 +8,7 @@ if ($_SESSION['type']==1) {
 
 
     require('controleur/Controleur.php');
-    require('include/config.php');
+
 
 
 
@@ -21,7 +21,7 @@ if ($_SESSION['type']==1) {
             exit;
         }
         if ($_GET['action'] == 'accueil') {
-            Accueil() ; // Acceuil du site
+            admin(); ; // Acceuil du site
             exit;
         }
         //Ajouter
@@ -35,11 +35,13 @@ if ($_SESSION['type']==1) {
 
         //Supprimer
         if ($_GET['action'] == 'delete') {
+            suppression();
             exit;
         }
 
         //Modifier
         if ($_GET['action'] == 'update') {
+            modif();
             exit;
         }
         // Destruction de la session.

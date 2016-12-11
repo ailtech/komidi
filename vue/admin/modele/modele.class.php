@@ -9,10 +9,10 @@ class Spectacle
 	}
 
 	public function getSpectacles()
-	{
-		$stmt = $this->db->prepare("SELECT * FROM db_komidi ");
-		$editRow=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $editRow;
+	{	$strSql = "SELECT * FROM kdi_spectacle;";
+		$stmt = $this->db->prepare($strSql);
+		$stmt->execute();
+		return $stmt;
 	}
 	//receuille lemail
 	public function getEmail($req){
@@ -174,7 +174,9 @@ WHERE S.Spe_id = B.Spe_id;";
 	
 	public function deleteSpectacle($id)
 	{
-
+		$strSQL= "DELETE FROM kdi_spectacle WHERE Spe_id=$id;";
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
 	}
 	
 
@@ -294,7 +296,7 @@ class Database
 		$this->db_sgbd = "mysql";
 		$this->db_name = "db_komidi";
 		$this->db_user = "root";
-		$this->db_pass = "";
+		$this->db_pass = "root";
 		$this->db_host = "localhost";
 		$this->db_port = 3306;
 

@@ -10,7 +10,7 @@
     $PARAM_port         ="3306";        // Port de connexion
     $PARAM_nom_bd       ="db_komidi";   // le nom de votre base de données
     $PARAM_utilisateur  ="root";        // nom utilisateur 
-    $PARAM_mot_passe    ="";            // mot de passe utilisateur
+    $PARAM_mot_passe    ="root";            // mot de passe utilisateur
     $PARAM_dsn          =$PARAM_sgbd.":host=".$PARAM_hote.";dbname=".$PARAM_nom_bd; // Nom de la source de données
 
         $dboptions = array(

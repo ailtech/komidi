@@ -2,25 +2,21 @@
   // démarrage d'une session
 $authOK = getAuthentification();
 //echo $authOK;//debug
-
-if (!$authOK or $_SESSION['type']== 0) {
+if( $authOK && $_SESSION['type'] == 0 ){
+    //on redirige vers l'acceuil c'est un utilistaeur
     //echo "c'est un utilisateur";//debug
     header('Location: index.php');
 }
-else {
-    $sessionOK = getSession();
-    //echo "On est entrai utiliser la fonction sessionOK";//debug
-
+else if( $authOK && $_SESSION['type'] == 1 ){
+    //on redirige vers la page admin
+    //echo "On vas vers l'admin";
+    header('Location:vue/admin/index.php?action=admin');
+}
+else{
+    //la personne n'existe pas
+    header('Location: index.php');
 }
 
-if ($sessionOK) {
-    //echo "On est entrain de rediriger vers l'admin";//debug
-    header('Location:index.php?action=admin');
-        }
-  else {
-            header('Location: index.php');
-      //echo "On est entrain de rediriger vers l'acceuil par default";//debug
-        }
 
 ?>
 
