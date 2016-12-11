@@ -1,5 +1,8 @@
 <?php
 require('include/config.php');
+
+
+
 //On recupere l'id pour mettre les info du spectacle
 if( isset($_GET['action']) and isset($_GET['id']) and $_GET['action'] == "update" and !empty( $_GET['id'] ) ){
     $idSpectacle = htmlspecialchars(htmlentities( $_GET['id'] ));
@@ -15,7 +18,61 @@ else{
 }
 //on modifie
 if(isset($_POST['btn-save']))
-{
+{   //parametre pour le fichier envoyer
+    if( isset($_FILES['Affiche']) and !empty($_FILES['Affiche']) ){
+        //chose a fair si le fichier existe
+        if( $_FILES['Affiche']['error'] == 0 ){
+            if( $_FILES['Affiche']['size'] <= 2000000 ){
+                //on verifie l extension
+                $info = pathinfo($_FILES['Affiche']['name']);
+                $extension = $info['extension'];
+                $tabExt = array('jpg','jpeg','gif','png');
+                if( in_array( $extension, $tabExt) ){
+                    //si lextension est valide
+                    $base = "../../image/".basename($_FILES['Affiche']['name']);
+                    //echo "Nom Fichier:".$_FILES['Affiche']['name'];//debug
+                    if( move_uploaded_file($_FILES['Affiche']['tmp_name'],$base)){
+                        echo "<div class=\"alert alert-info\">
+            <strong>Super !</strong> Le Fichier a bien été importer!
+        </div>";
+                    }
+                    else{
+                        //erreur
+                        echo "<div class=\"alert alert-warning\">
+            <strong>Désolé!</strong> Erreur Dans l'envoie de votre fichier !
+        </div>";
+                    }
+
+                }
+                else{
+                    //erreur
+                    echo "<div class=\"alert alert-warning\">
+            <strong>Désolé!</strong> Erreur les extension possible sont: 'jpg','jpeg','gif','png' !
+        </div>";
+                }
+            }
+            else{
+                //erreur
+                echo "<div class=\"alert alert-warning\">
+            <strong>Désolé!</strong> Erreur votre fichier depasse 2 MO !
+        </div>";
+            }
+        }
+        else{
+            //erreur
+            echo "<div class=\"alert alert-warning\">
+            <strong>Désolé!</strong> Erreur lors de la lecture du fichier !
+        </div>";
+        }
+    }
+    else{
+        echo "<div class=\"alert alert-warning\">
+            <strong>Désolé!</strong> Fichier inexistant !
+        </div>";
+    }
+
+
+
     $Titre = htmlspecialchars( $_POST['Titre'] ,ENT_NOQUOTES);
     //$Annee = htmlspecialchars(htmlentities( $_POST['Annee'] ));
     $Spe_mes = htmlspecialchars( $_POST['mes'] ,ENT_NOQUOTES);
@@ -26,9 +83,9 @@ if(isset($_POST['btn-save']))
     $Public = htmlspecialchars( $_POST['Public'] ,ENT_NOQUOTES);
     $ResumeCourt = htmlspecialchars( $_POST['ResumeCourt'] ,ENT_NOQUOTES);
     $ResumeLong = htmlspecialchars( $_POST['ResumeLong'] ,ENT_NOQUOTES);
-    //$Affiche = htmlspecialchars(htmlentities( $_POST['Affiche'] ));
+    $Affiche = htmlspecialchars( $_FILES['Affiche']['tmp_name'], ENT_NOQUOTES);
     $Genre = htmlspecialchars( $_POST['Genre'] ,ENT_NOQUOTES);
-    if($spectacles->updateSpectacle($Titre,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,/*$Affiche,*/$ResumeCourt,$ResumeLong,$Genre,$idSpectacle))
+    if($spectacles->updateSpectacle($Titre,$Affiche,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,/*$Affiche,*/$ResumeCourt,$ResumeLong,$Genre,$idSpectacle))
     {
         header("Location: index.php?action=update&inserted&id=$idSpectacle");
     }
@@ -119,12 +176,12 @@ else if(isset($_GET['failure']))
                             </select>
                         </td>
                     </tr>
-                            <!--
+
                     <tr>
                         <td>Affiche</td>
                         <td><input type="file" name='Affiche' class='form-control' ></td>
                     </tr>
-                    -->
+
                     <tr>
                         <td>Resume court</td>
                         <td><textarea name='ResumeCourt' class='form-control' ><?php echo $rst['Spe_resume_court'];?></textarea></td>

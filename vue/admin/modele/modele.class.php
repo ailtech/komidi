@@ -103,11 +103,11 @@ WHERE S.Spe_id = B.Spe_id;";
 	}
 	
 	
-	public function updateSpectacle($Titre,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,/*$Affiche,*/$ResumeCourt,$ResumeLong,$Genre,$idSpectacle)
+	public function updateSpectacle($Titre,$Affiche,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,$ResumeCourt,$ResumeLong,$Genre,$idSpectacle)
 	{
 		//il manque l affiche
 		$strSql = "UPDATE kdi_spectacle 
-SET Spe_titre=\"$Titre\",Spe_mes=\"$Spe_mes\",Spe_acteur=\"$Acteurs\",Spe_cie=\"$Spe_cie\",Spe_genre=\"$Genre\",Spe_duree=$Duree,Spe_Lang=\"$Langue\",Spe_public=\"$Public\",Spe_resume_court=\"$ResumeCourt\",Spe_resume_long=\"$ResumeLong\" WHERE Spe_id=$idSpectacle;";
+SET Spe_titre=\"$Titre\",Spe_mes=\"$Spe_mes\",Spe_acteur=\"$Acteurs\",Spe_cie=\"$Spe_cie\",Spe_genre=\"$Genre\",Spe_duree=$Duree,Spe_Lang=\"$Langue\",Spe_public=\"$Public\",Spe_affiche=\"$Affiche\"Spe_resume_court=\"$ResumeCourt\",Spe_resume_long=\"$ResumeLong\" WHERE Spe_id=$idSpectacle;";
 		//echo $strSql; //debug
 		$stmt = $this->db->prepare($strSql);
 		$stmt->execute();
@@ -120,7 +120,16 @@ SET Spe_titre=\"$Titre\",Spe_mes=\"$Spe_mes\",Spe_acteur=\"$Acteurs\",Spe_cie=\"
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
 	}
-	
+
+	public function createSpectacle($Titre,$Affiche,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,$Affiche,$ResumeCourt,$ResumeLong,$Genre)
+	{
+		$strSQL= "INSERT INTO kdi_spectacle ( Spe_titre, Spe_mes, Spe_acteur, Spe_cie, Spe_genre, Spe_duree, Spe_Lang, Spe_public, Spe_affiche, Spe_resume_court, Spe_resume_long) 
+VALUES (\"$Titre\",\"$Spe_mes\",\"$Acteurs\",\"$Spe_cie\",\"$Genre\",$Duree,\"$Langue\",\"$Public\",\"$Affiche\",\"$ResumeCourt\",\"$ResumeLong\")";
+		//echo $strSQL;//debug
+		$stmt = $this->db->prepare($strSQL);
+		$stmt->execute();
+	}
+
 
 	/* paging */
 	

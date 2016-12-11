@@ -46,7 +46,7 @@ if ($_SESSION['type']==1) {
         }
         // Destruction de la session.
         if ($_GET['action'] =='deconnexion') {
-            deconnexion(); //  du site
+            deco(); //  du site
             exit();
         }
     } else {

@@ -20,5 +20,8 @@ function erreur() {
 function suppression(){
     require './vue/vueSuppression.php';
 }
+function deco(){
+    require './vue/vueDeconnexion.php';
+}
 
 ?>

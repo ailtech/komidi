@@ -54,12 +54,14 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-target">
         <ul class="nav navbar-nav">
             <li class="active"><a href="index.php?action=ajout">Ajouter d'un spectacle</a></li>
+             <li><a href="index.php?action=deconnexion">Deconnexion</a></li> 
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrateur<span class="caret"></span></a>
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Administrateur
+                <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="index.php?action=deconnexion">Se deconnecter</a></li>
+                    <li><a href="index.php?action=deconnexion">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
