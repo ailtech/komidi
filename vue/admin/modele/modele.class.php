@@ -94,82 +94,24 @@ WHERE S.Spe_id = B.Spe_id;";
 	public function getSpectacle($id)//recupere les info lier a un spectacle
 	{
 
-		$strSQL= "SELECT Spe_id, Spe_titre, Spe_mes, Spe_genre,Spe_Lang, Spe_resume_court, Spe_affiche, Spe_public, Spe_duree, Spe_resume_long FROM kdi_spectacle WHERE Spe_id=".$id.";";
+		$strSQL= "SELECT * FROM kdi_spectacle WHERE Spe_id=".$id.";";
 		$stmt = $this->db->prepare($strSQL);
 		$stmt->execute();
-		$edit=$stmt->fetch(PDO::FETCH_ASSOC);
-        $note = $this->getVueNote($id);
-        $noteArrondi = round($note['moyenneNote']);
-		echo "<div class=\"container\">
-		<!-- titre-->
-		<div class=\"alert alert-success\" role=\"alert\" id='alertNotation' style='display:none;'></div>
-		<h1>$edit[Spe_titre]</h1>
-		<div class='row'>
-			<div class='col-md-4'>
-				<img src=\"image/$edit[Spe_affiche]\" alt='Affiche' width='197px' height='263px'><!-- image preview-->
-
-			</div>
-			<div class='col-md-8'>
-				<!-- Liste -->
-				<ul class='list-unstyled'>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-one-day'></span>Durée : <small>$edit[Spe_duree]  minute</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-gender-ori-hetero'></span>Genres : <small>$edit[Spe_genre]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-family'></span>Nationalités : <small>$edit[Spe_Lang]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-old-man'></span>Acteurs : <small>$edit[Spe_mes]</small>
-						</h5>
-					</li>
-					<li> 
-						<h5>
-							<span class='glyphicons glyphicons-group'></span>Public : <small>$edit[Spe_public]</small>
-						</h5>
-					</li>
-				</ul>
-			</div>
-				 
-				<!-- notation -->
-				<form action='#' method='POST'>
-				<label for='input-7-xs' class='control-label'>Noter le Spectacle:</label>
-				<input id='input-7-xs' class='rating rating-loading' value='$noteArrondi' data-min='0' data-max='5' data-step='1' data-size='xs'><hr/>
-				$noteArrondi/5 ($note[nbDenote] votes)
-				
-					<input type='hidden' name='idSpectacle' value='$id'>
-					
-					<input type='hidden' name='idMembre' value='3'>
-					<input type='submit' value='Voter' id='note'>
-					
-				</form>
-				
-				
-			
-			
-		</div>
-		<!-- texteau sujet du spectacle -->
-				<H2>Synopsis</H2>
-				<p class=''>
-					$edit[Spe_resume_long]
-				</p>
-	</div>";
-		return $edit;
+		//$edit=$stmt->fetch(PDO::FETCH_ASSOC);
+        //$note = $this->getVueNote($id);
+		return $stmt;
 	}
 	
 	
-	public function updateSpectacle($params)
+	public function updateSpectacle($Titre,$Spe_mes,$Acteurs,$Spe_cie,$Duree,$Langue,$Public,/*$Affiche,*/$ResumeCourt,$ResumeLong,$Genre,$idSpectacle)
 	{
-
+		//il manque l affiche
+		$strSql = "UPDATE kdi_spectacle 
+SET Spe_titre=\"$Titre\",Spe_mes=\"$Spe_mes\",Spe_acteur=\"$Acteurs\",Spe_cie=\"$Spe_cie\",Spe_genre=\"$Genre\",Spe_duree=$Duree,Spe_Lang=\"$Langue\",Spe_public=\"$Public\",Spe_resume_court=\"$ResumeCourt\",Spe_resume_long=\"$ResumeLong\" WHERE Spe_id=$idSpectacle;";
+		//echo $strSql; //debug
+		$stmt = $this->db->prepare($strSql);
+		$stmt->execute();
+		return $stmt;
 	}
 	
 	public function deleteSpectacle($id)
