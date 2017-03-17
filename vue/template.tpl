@@ -17,6 +17,7 @@
 			</style>
 		</head>
 		<body>
+		<nav class="navbar navbar" id="ecole"></nav>
 
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
 				<div class="container">
@@ -94,6 +95,7 @@
             <script src="bootstrap/js/Vérif.js"></script>
             <script src="bootstrap/js/noter.js"></script>
 			<script src="bootstrap/js/recherche.js"></script>
+			<script src="bootstrap/js/ecole.js"></script>
 
 </body>
 </html>

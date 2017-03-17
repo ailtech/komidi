@@ -8,6 +8,7 @@ require('./include/fonction.php');
 
 //echo $_GET['action'] ;
 //exit;
+
 try {
 	if (isset($_GET['action'])  and !empty($_GET['action']))
 	{
