@@ -1,6 +1,16 @@
 <?php
-
+/**
+ * Ce fichier permet de deconnecter le personne.
+ * @copyright ailtech
+ * @author Lefevre Alexandre
+ * @author Robert Steven
+ * @since 1
+ * @version 1
+ *
+ */
+    //On inclut le fichier de configuration
     require 'include/config.php';
+//On detruit la session
     session_destroy();
 //on remet le bouton pour se conncter en place
     $m='Connexion';

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Ce fichier permet de rediriger la personne sur le coter admin ou le coter utilisateur.
+ * @copyright ailtech
+ * @author Robert Steven
+ * @since 25/10/16
+ * @version 1
+ */
+
   // démarrage d'une session
 $authOK = getAuthentification();
 //echo $authOK;//debug

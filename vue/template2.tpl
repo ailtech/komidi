@@ -17,6 +17,26 @@
     </style>
 </head>
 <body>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Information.</h4>
+            </div>
+            <div class="modal-body">
+                <p id="texteModal">Gaisha.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <nav class="navbar navbar" id="ecole"></nav>
 
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -37,15 +57,33 @@
             </ul>
 
         </div>
-        <div class="input-group">
-            <form action="#" method="GET">
-                <input type="search" name="recherche" placeholder="Rechercher" id="recherche">
-                <span class="glyphicon glyphicon-search"></span>
-                <div class="list-group" id="emplacementRecherche">
 
+        <div class="row">
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h1>
+                        <?= $titrepage ?>
+                        <img src="image/logo_scope.png" class="pull-right" height="115" width="118">
+                    </h1>
+                    <p>
+                        <?= $msgaccueilpage ?>
+                    </p>
                 </div>
-            </form>
+            </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="http://zeop.re" target="_blank">
+                        <img src="image/zeop.png" alt="Lights" style="width:100%">
+                        <div class="caption">
+                            <p>Zeop partenaire officielle du festival komidi.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
+
+
         <?= $adherent ?>
 
     </div>
@@ -77,14 +115,15 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="ratingStar/js/star-rating.js"></script>
 <script src="bootstrap/js/Vérif.js"></script>
 <script src="bootstrap/js/noter.js"></script>
 <script src="bootstrap/js/recherche.js"></script>
 <script src="bootstrap/js/ecole.js"></script>
+<script src="bootstrap/js/contact.js"></script>
 
 </body>
 </html>

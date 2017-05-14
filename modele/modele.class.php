@@ -59,7 +59,7 @@
 
 		//cherche le texte
 		public function recherche($texte){
-			$strSQL= "SELECT Spe_titre,Spe_id,Spe_affiche FROM kdi_spectacle WHERE Spe_titre LIKE \"%$texte%\" OR Spe_acteur LIKE \"%$texte%\" OR Spe_genre LIKE \"$texte%\" ;";
+			$strSQL= "SELECT Spe_titre,Spe_id,Spe_affiche,Spe_genre FROM kdi_spectacle WHERE Spe_titre LIKE \"%$texte%\" OR Spe_acteur LIKE \"%$texte%\" OR Spe_genre LIKE \"$texte%\" ;";
 			//bbro i was ir
 			$stmt = $this->db->prepare($strSQL);
 			$stmt->execute();

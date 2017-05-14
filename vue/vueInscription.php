@@ -1,7 +1,18 @@
 <?php
+/**
+ *Ce fichier affiche le formulaire d'inscription.
+ * @copyright ailtech
+ * @author Perez Lucas
+ * @since 1 premiére version
+ * @version 1
+ */
+
+//On inclut le fichier de configuration
 require_once 'include/config.php';
+
 //Titre onglet
 $titretab = "Komidi Inscription";
+
 // Menu de la page
 ob_start();
 foreach($menupage as $page_name => $page_url)
@@ -15,6 +26,7 @@ foreach($menupage as $page_name => $page_url)
         "</li>";
 }
 $menupage = ob_get_clean();
+
 ob_start();
 ?>
     <div class="container">
@@ -58,6 +70,8 @@ ob_start();
         </form>
     </div>
 <?php
+
 $contenupage = ob_get_clean();
+//appelle de la 2 éme template
 require 'vue/template2.tpl';
 ?>

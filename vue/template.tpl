@@ -9,6 +9,7 @@
 			<link href="ratingStar/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 			<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+			<link rel="stylesheet" href="bootstrap/css/komidi_style.css">
 
 			<style>
 				#tabCoter{
@@ -35,7 +36,30 @@
 							<?= $menupage ?>
 
 						</ul>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="jumbotron">
+								<h1>
+									<?= $titrepage ?>
+									<img src="image/logo_scope.png" class="pull-right" height="115" width="118">
+								</h1>
+								<p>
+									<?= $msgaccueilpage ?>
+								</p>
+							</div>
+						</div>
 
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<a href="http://zeop.re" target="_blank">
+									<img src="image/zeop.png" alt="Lights" style="width:100%">
+									<div class="caption">
+										<p>Zeop partenaire officielle du festival komidi.</p>
+									</div>
+								</a>
+							</div>
+						</div>
 					</div>
 
 					<div class="input-group">
@@ -45,6 +69,7 @@
 							<div class="list-group" id="emplacementRecherche">
 
 							</div>
+
 						</form>
 					</div>
 					<?= $adherent ?>
@@ -55,15 +80,7 @@
 			<div class="container">		
 				<div class="row">
 					<div class="col-xs-12 col-sm-9">
-						<div class="jumbotron">
-							<h1>
-								<?= $titrepage ?>
-								<img src="image/affichekomidi.png" class="pull-right">
-							</h1>
-							<p>
-								<?= $msgaccueilpage ?>
-							</p>
-						</div>
+
 
 						<hr>
 						<!-- Contenu -->

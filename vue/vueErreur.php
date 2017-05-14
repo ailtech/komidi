@@ -1,4 +1,11 @@
 <?php
+/**
+ * Ce fichier affiche une page qui indique que une erreur est survenue lors de l'execution du programme.
+ * @copyright ailtech
+ * @author Robert Steven
+ * @since 25/10/16
+ * @version 1
+ */
 	$titre = "KOMIDI: Erreur";
 	ob_start();
 ?>

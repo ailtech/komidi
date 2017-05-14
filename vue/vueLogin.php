@@ -1,4 +1,12 @@
 <?php
+/**
+ * Ce fichier affiche le formulaire de connection
+ * @copyright ailtech
+ * @author Robert Steven
+ * @since 1 premiére version.
+ * @version 1
+ */
+
 require 'include/config.php';  
   
     $titre = "Connexion utilisateur";

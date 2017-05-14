@@ -1,20 +1,23 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: alexandre
- * Date: 13/11/16
- * Time: 13:37
+ * Ce fichier permet d'afficher les informations sur spectacle précis,
+ * et permet la notation si cette personne est connecter sinon elle ne le permet pas.
+ * @copyright ailtech
+ * @author Lefevre Alexandre
+ * @since 1 Premiéres version
+ * @since 2 Affichage des spectacles retravailer
+ * @version 2
  */
+
+//On inclue le fichier de configuration
 require 'include/config.php';
 
-//include './modele/modele.class.php';
-
-//$spectacles = new Spectacle($DB_cnx);
 
 //Titre onglet
 $titretab = "Komidi Accueil";
-// Menu de la page
 
+
+// Menu de la page
 ob_start();
 foreach($menupage as $page_name => $page_url)
 {
@@ -26,24 +29,37 @@ foreach($menupage as $page_name => $page_url)
 		<a href='$page_url'>".$page_name ."</a>".
         "</li>";
 }
-
 $menupage = ob_get_clean();
+
 
 //Contenu de la page
 ob_start();
 echo "<div class='row affiches'>";
 
-if( !isset( $_GET['id'] ) or empty( $_GET['id'] ) ){
+//on verifie si un l'identifiant de spectacle a bien étè envoyer.
+if( !isset( $_GET['id'] ) or empty( $_GET['id'] ) )
+{
     //erreur l'id na pas etait envoyer
 }
-else{
+else
+{
+    //On met l'identifiant du membres zero, c'est en quelque sort un netoyage de la variable
     $idMembre = "";
+
+    //on extraite et echape l'identifiant du spectacle
     $id = htmlentities(htmlspecialchars( $_GET['id'] ));
+
+    //On récupere les informations sur le spectacle
     $spectacle = $spectacles->getSpectacle($id);
+
+    //On récupéres la note moyenne du spectacle
     $note = $spectacles->getVueNote($id);
     $noteArrondi = round($note['moyenneNote']);
+
     //partit pour un membres connecter
-    if( isset( $_SESSION['id'] ) and !empty( $_SESSION['id'] ) ){
+    if( isset( $_SESSION['id'] ) and !empty( $_SESSION['id'] ) )
+    {
+        //idMembre possede l'identifiant de l'utilisateur actuellement connecter
         $idMembre = $_SESSION['id'];
         echo "<div class=\"container\">
 		<!-- titre-->
@@ -109,7 +125,8 @@ else{
 				</p>
 	</div>";
     }
-    else{
+    else//cas ou c'est une personne non connecter
+    {
         //partit pour une personne non conecter
         echo "<div class=\"container\">
 		<!-- titre-->
@@ -183,7 +200,7 @@ else{
 echo "</div><!-- .row affiches -->";
 $contenupage = ob_get_clean();
 
-//Appel de template
+//Appel de template et barre de navigation latérale
 require "vue/vueSidebar.php";
 require "vue/template2.tpl";
 ?>

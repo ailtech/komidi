@@ -1,0 +1,12 @@
+{
+    "name": "komidi/phpdoc",
+    "require": {
+        "phpdocumentor/phpdocumentor": "^2.9"
+    },
+    "authors": [
+        {
+            "name": "ailtech",
+            "email": "lefevre451@gmail.com"
+        }
+    ]
+}

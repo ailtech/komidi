@@ -21,7 +21,7 @@ $menupage = ob_get_clean();
 ?>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <form id="defaultForm" method="post" name="frmContact" class="form-horizontal" action="#">
+            <form id="formulaireContact" method="post" name="frmContact" class="form-horizontal" action="index.php?action=demandeContact">
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Civilit&eacute;</label>
                     <div class="col-sm-5">
@@ -43,9 +43,9 @@ $menupage = ob_get_clean();
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Adresse</label>
+                    <label class="col-sm-3 control-label">Message</label>
                     <div class="col-sm-5">
-                        <textarea class="form-control" id="adresse" name="adresse" rows="5" cols="120" placeholder="adresse" required></textarea>
+                        <textarea class="form-control" id="msg" name="msg" rows="5" cols="120" placeholder="Votre message." required></textarea>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@ $menupage = ob_get_clean();
 
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-success" name="signup" value="Sign up">valider</button>
+                        <button type="submit" class="btn btn-success" name="signup" value="Sign up" id="soumissionFormulaireContact">valider</button>
                     </div>
                 </div>
             </form>
