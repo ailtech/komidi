@@ -192,6 +192,7 @@ else
 				</p>
 	</div>";
     }
+    echo "<div id='map'></div>";
 
 
 }
