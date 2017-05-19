@@ -24,7 +24,7 @@ $menupage = ob_get_clean();
 //Contenu de la page debut de mémoire tampon.
 ob_start();
 //On écrit la requête pour sélectionner les informations que l'on a besoin pour afficher les spectacles.
-$strSQL= "SELECT Spe_id, Spe_titre, Spe_genre, Spe_resume_court, Spe_affiche, Spe_public FROM kdi_spectacle ORDER BY RAND()";
+$strSQL= "SELECT Spe_id, Spe_titre, Spe_genre, Spe_resume_court, Spe_affiche, Spe_public FROM kdi_spectacle ORDER BY RAND();";
 //On définit le nombre de spectacle que l'on veux afficher par page
 $records_per_page=6;
 //On éxecute la methodes paging qui va revoyer la requête de selection pour faire un affichage de 6 specatcles

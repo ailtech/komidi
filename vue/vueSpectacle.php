@@ -124,6 +124,7 @@ else
 					$spectacle[Spe_resume_long]
 				</p>
 	</div>";
+        echo "<div id='map'></div>";
     }
     else//cas ou c'est une personne non connecter
     {
@@ -191,8 +192,9 @@ else
 					$spectacle[Spe_resume_long]
 				</p>
 	</div>";
+        echo "<div id='map'></div>";
     }
-    echo "<div id='map'></div>";
+
 
 
 }

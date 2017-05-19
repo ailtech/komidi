@@ -123,8 +123,7 @@
 <script src="bootstrap/js/recherche.js"></script>
 <script src="bootstrap/js/ecole.js"></script>
 <script src="bootstrap/js/contact.js"></script>
-<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?callback=InitMyMap" async defer></script> -->
-<script src="http://maps.google.com/maps/api/js?sensor=false&language=fr" type="text/javascript"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?callback=InitMyMap" async defer></script>
 <script src="bootstrap/js/maps.js"></script>
 
 </body>

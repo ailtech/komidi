@@ -360,10 +360,10 @@ class Komidi extends db
 
         $self = $_SERVER['PHP_SELF'];
 
-        $stmt = $this->getCo()->prepare($query);
-        $stmt->execute();
+        //$stmt = $this->getCo()->prepare($query);
+        //$stmt->execute();
 
-        $total_no_of_records = $stmt->rowCount();
+        $total_no_of_records = $this->requeteObjet($query)->rowCount();
 
         if($total_no_of_records > 0)
         {
