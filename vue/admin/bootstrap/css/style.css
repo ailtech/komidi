@@ -1,0 +1,44 @@
+
+.films {
+    width:90%;
+    background-color: white;
+    margin:0 auto 0 auto;
+    padding:5%;
+    font-family:cursive;
+    
+}
+
+.films h1{
+    font-size: 30px;
+    font-weight:bold;
+    color:darkcyan;
+    padding-left: 30px;
+    font-family: sans-serif;
+    
+}
+.fond{
+    background-color:white;
+}
+.films p{
+    font-size:20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: sans-serif;
+}
+    
+.bord {
+    width:50%;
+    word-wrap: break-word;
+    margin-left:300px;
+    border-color:darkcyan;
+    border-width: 2px;
+   
+}
+.thumbnail{
+     border: 5px darkcyan groove;
+    box-shadow: 6px 6px 0px darkslategray;
+}
+
+.container h2{
+    margin-left: 400px;
+}
