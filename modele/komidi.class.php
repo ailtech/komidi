@@ -17,6 +17,9 @@ class Komidi extends db
         //on fait appelle au constructeur mére pour disposer de la connection a la bdd
         parent::__construct();
     }
+    function test(){
+        return 1;
+    }
 
     /**
      * Méthode qui lance un effectue une requête passer en paramétre et renvoie le résultat sous forme d'objet PDO.
@@ -58,7 +61,7 @@ class Komidi extends db
     public function getSpectacles()
     {
         // On écrit la requête.
-        $requete = "SELECT * FROM db_komidi ";
+        $requete = "SELECT * FROM kdi_spectacle;";
         //On exécute la requête et retourne son résultat.
         return $this->requeteArray( $requete );
     }

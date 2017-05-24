@@ -32,7 +32,7 @@ require_once 'include/fonction.php';
     
     require_once('modele/modele.class.php');
 
-    $spectacles = new Spectacle($DB_cnx);
+    $spectacles = new Komidi($DB_cnx);
 
 // Page courante
     $current_page = basename($_SERVER['PHP_SELF']); // Ex: index.php
